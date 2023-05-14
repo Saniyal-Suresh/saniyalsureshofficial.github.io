@@ -61,7 +61,7 @@
 
             <div class="intro col-lg-8 col-md-12 col-12 ps-lg-5 m-auto">
                 <h1 class="">Hi I'am <span class="bg-black text-light px-2 myText">Saniyal Suresh</span></h1>
-                <p>I'm <strong onclick="col()" id="texCol">Saniyal Suresh.</strong> I have a lot of intrest in Designing & Coding, and also I'm really enjoying it. I'm focusing on leatest technologies and also like to work as a freelancer.
+                <p>I'm <strong>Saniyal Suresh.</strong> I have a lot of intrest in Designing & Coding, and also I'm really enjoying it. I'm focusing on leatest technologies and also like to work as a freelancer.
                 </p>
             </div>
         </div>
@@ -84,9 +84,9 @@
 
 
 
-            <div id="htmlImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;">
+            <div id="htmlImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="first()">
                 <img src="./Images/html.png" class="card-img-top" alt="...">
-                <div class="card-body first-card">
+                <div id="first-card" class="card-body" >
 
                     <p class="card-text text-center ">Have 80% knowledge in HTML.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="80"
@@ -96,9 +96,9 @@
                 </div>
             </div>
 
-            <div id="cssImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;">
+            <div id="cssImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="second()">
                 <img src="./Images/css.png" class="card-img-top" alt="...">
-                <div class="card-body second-card">
+                <div id="second-card" class="card-body second-card">
                     <p class="card-text text-center ">Have 60% knowledge in CSS.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="60"
                         aria-valuemin="0" aria-valuemax="100">
@@ -107,9 +107,9 @@
                 </div>
             </div>
 
-            <div id="jsImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;">
+            <div id="jsImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="third()">
                 <img src="./Images/Javascript.png" class="card-img-top" alt="...">
-                <div class="card-body third-card">
+                <div id="third-card" class="card-body third-card">
                     <p class="card-text text-center ">Have 50% knowledge in JavaScript.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
@@ -118,9 +118,9 @@
                 </div>
             </div>
 
-            <div id="bootImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;">
+            <div id="bootImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="fourth()">
                 <img src="./Images/bootstrap.png" class="card-img-top" alt="...">
-                <div class="card-body fourth-card">
+                <div id="fourth-card" class="card-body fourth-card">
                     <p class="card-text text-center ">Have 50% knowledge in Bootstrap.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
@@ -253,8 +253,8 @@
     <!-- bootstrap JavaScript -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="./myjq.JS"></script>
-    <script src="./test.js"></script>
+    <!-- <script src="./myjq.JS"></script> -->
+    <script src="./myjs.js"></script>
 
     <!-- bootstrap js via cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
