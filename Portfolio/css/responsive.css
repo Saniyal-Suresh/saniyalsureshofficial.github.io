@@ -1,0 +1,29 @@
+
+@media(max-width:768px){
+    .my-para{
+        text-align: justify;
+    }
+}
+
+@media(max-width:576px){
+    .intro{
+        position: absolute;
+        top: 480px;
+    }
+    .img-fluid{
+        position: absolute;
+        top:60px;
+    }
+}
+@media(max-width:418px){
+    .intro{
+        position: absolute;
+        top: 350px;
+    }
+    .img-fluid{
+        position: absolute;
+        top:60px;
+    }
+}
+
+
