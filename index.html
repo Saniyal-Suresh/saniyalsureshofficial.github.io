@@ -21,8 +21,9 @@
     <script src="https://kit.fontawesome.com/ce8fedaf62.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  " style="z-index: 9;">
+<body class="bg-dark">
+    
+    <nav class="navbar text-bg-light navbar-expand-lg  position-fixed bottom-0 w-100" style="z-index: 9;">
         <div class="container">
             <a class="navbar-brand" href="#">Saniyal Suresh</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,7 +54,7 @@
     </nav>
 
     <!-- home seciton -->
-    <div id="home" class="container bg-light">
+    <div id="home" class="container bg-dark text-light">
         <div class="row vh-100 d-flex align-items-center">
             <div class="col-lg-4 col-md-12 col-12 m-auto">
                 <img class="img-fluid" src="Images/web-developer.png" alt="">
@@ -68,7 +69,7 @@
     </div>
 
     <!-- about section  -->
-    <section id="about" class="container  ">
+    <section id="about" class="container  text-light">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12  mt-5">
                 <h3 class="text-uppercase">skills i have</h3>
@@ -200,7 +201,7 @@
         <div class="container ">
 
             <div id="contact" class="row ">
-                <h4 class="mt-5 text-center  col-lg-10 col-md-10 m-auto mb-3 text-bg-primary">Get On Touch</h4>
+                <h4 class="mt-5 text-center  col-lg-10 col-md-10 m-auto mb-3 text-bg-primary rounded-4">Get On Touch</h4>
                 <form action="" method="post">
                     <div class="col-lg-10 col-md-10 m-auto bg-light rounded-bottom mb-5 bg-info p-5">
                         <div class="mb-3">
@@ -247,14 +248,96 @@
         </div>
     </footer>
 
+    <!-- navbar secton at bottom design -->
+    
+
 
     </div>
 
     <!-- bootstrap JavaScript -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <!-- <script src="./myjq.JS"></script> -->
-    <script src="./myjs.js"></script>
+    <script>
+
+
+$(document).ready(function () {
+    
+    $("#first-card").hide(),$(".second-card").hide(),$(".third-card").hide(),$(".fourth-card").hide()
+    $("#htmlImg").click(function(){
+        $("#first-card").fadeIn(600).show(600)
+    })
+    $("#htmlImg").mouseleave(function(){
+        $("#first-card").fadeOut(600).hide(600)
+    })
+
+    
+    $("#cssImg").click(function(){
+        $(".second-card").fadeIn(600)
+    })
+    $("#cssImg").click(function(){
+        $(".second-card").fadeOut(600)
+    })
+
+    
+    $("#jsImg").click(function(){
+        $(".third-card").fadeIn(600)
+    })
+    $("#jsImg").click(function(){
+        $(".third-card").fadeOut(600)
+    })
+    $("#bootImg").click(function(){
+        $(".fourth-card").fadeIn(600)
+    })
+    $("#bootImg").click(function(){
+        $(".fourth-card").fadeOut(600)
+    })
+
+    let home = $("#myHome")
+    let about = $("#myAbout")
+    let project = $("#myProjects")
+    let contact = $("#myContact")
+
+
+    if(about.click(function(){
+        about.addClass("active")
+        console.log("about clicked")
+        home.removeClass("active")
+        project.removeClass("active")
+        contact.removeClass("active")
+    }))if(home.click(function(){
+        home.addClass("active")
+        console.log("home clicked")
+        about.removeClass("active")
+        project.removeClass("active")
+        contact.removeClass("active")
+    }))if(project.click(function(){
+        project.addClass("active")
+        console.log("project clicked")
+        about.removeClass("active")
+        home.removeClass("active")
+        contact.removeClass("active")
+    }))if(contact.click(function(){
+        contact.addClass("active")
+        console.log("contact clicked")
+        about.removeClass("active")
+        home.removeClass("active")
+        project.removeClass("active")
+    }));
+    
+    
+    let show = false;
+    setInterval(() => {
+        let myDev =show?"Saniyal Suresh":"Web Developer";
+        show=!show;
+        $(".myText").text(myDev).fadeToggle(1000)
+    }, 1500);
+    
+
+});
+
+
+    </script>
+    <!-- <script src="./myjs.js"></script> -->
 
     <!-- bootstrap js via cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
