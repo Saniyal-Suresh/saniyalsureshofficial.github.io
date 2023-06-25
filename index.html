@@ -85,9 +85,9 @@
 
 
 
-            <div id="htmlImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="first()">
+            <div id="htmlImg" class="card bg-dark text-light m-2 rounded-5 " style="width: 18rem;" onclick="first()">
                 <img src="./Images/html.png" class="card-img-top" alt="...">
-                <div id="first-card" class="card-body" >
+                <div id="first-card" class="card-body hide" >
 
                     <p class="card-text text-center ">Have 80% knowledge in HTML.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="80"
@@ -99,7 +99,7 @@
 
             <div id="cssImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="second()">
                 <img src="./Images/css.png" class="card-img-top" alt="...">
-                <div id="second-card" class="card-body second-card">
+                <div id="second-card" class="card-body hide">
                     <p class="card-text text-center ">Have 60% knowledge in CSS.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="60"
                         aria-valuemin="0" aria-valuemax="100">
@@ -110,7 +110,7 @@
 
             <div id="jsImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="third()">
                 <img src="./Images/Javascript.png" class="card-img-top" alt="...">
-                <div id="third-card" class="card-body third-card">
+                <div id="third-card" class="card-body hide">
                     <p class="card-text text-center ">Have 50% knowledge in JavaScript.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
@@ -121,7 +121,7 @@
 
             <div id="bootImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="fourth()">
                 <img src="./Images/bootstrap.png" class="card-img-top" alt="...">
-                <div id="fourth-card" class="card-body fourth-card">
+                <div id="fourth-card" class="card-body hide">
                     <p class="card-text text-center ">Have 50% knowledge in Bootstrap.</p>
                     <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
@@ -257,87 +257,8 @@
     <!-- bootstrap JavaScript -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script>
-
-
-$(document).ready(function () {
     
-    $("#first-card").hide(),$(".second-card").hide(),$(".third-card").hide(),$(".fourth-card").hide()
-    $("#htmlImg").click(function(){
-        $("#first-card").fadeIn(600).show(600)
-    })
-    $("#htmlImg").mouseleave(function(){
-        $("#first-card").fadeOut(600).hide(600)
-    })
-
-    
-    $("#cssImg").click(function(){
-        $(".second-card").fadeIn(600)
-    })
-    $("#cssImg").click(function(){
-        $(".second-card").fadeOut(600)
-    })
-
-    
-    $("#jsImg").click(function(){
-        $(".third-card").fadeIn(600)
-    })
-    $("#jsImg").click(function(){
-        $(".third-card").fadeOut(600)
-    })
-    $("#bootImg").click(function(){
-        $(".fourth-card").fadeIn(600)
-    })
-    $("#bootImg").click(function(){
-        $(".fourth-card").fadeOut(600)
-    })
-
-    let home = $("#myHome")
-    let about = $("#myAbout")
-    let project = $("#myProjects")
-    let contact = $("#myContact")
-
-
-    if(about.click(function(){
-        about.addClass("active")
-        console.log("about clicked")
-        home.removeClass("active")
-        project.removeClass("active")
-        contact.removeClass("active")
-    }))if(home.click(function(){
-        home.addClass("active")
-        console.log("home clicked")
-        about.removeClass("active")
-        project.removeClass("active")
-        contact.removeClass("active")
-    }))if(project.click(function(){
-        project.addClass("active")
-        console.log("project clicked")
-        about.removeClass("active")
-        home.removeClass("active")
-        contact.removeClass("active")
-    }))if(contact.click(function(){
-        contact.addClass("active")
-        console.log("contact clicked")
-        about.removeClass("active")
-        home.removeClass("active")
-        project.removeClass("active")
-    }));
-    
-    
-    let show = false;
-    setInterval(() => {
-        let myDev =show?"Saniyal Suresh":"Web Developer";
-        show=!show;
-        $(".myText").text(myDev).fadeToggle(1000)
-    }, 1500);
-    
-
-});
-
-
-    </script>
-    <!-- <script src="./myjs.js"></script> -->
+    <script src="./myjs.js"></script>
 
     <!-- bootstrap js via cdn  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

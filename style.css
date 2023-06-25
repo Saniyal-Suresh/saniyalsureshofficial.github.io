@@ -28,3 +28,12 @@ nav{
     background-color: #49494993;
     
 }
+
+
+/* for js append */
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
