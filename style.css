@@ -50,3 +50,10 @@ nav{
 .colorSani{
     color: #fff !important;
 }
+
+.my-Outline{
+    outline: 1px solid #fff;
+}
+.my-Outline:focus{
+    outline: 1px solid white;
+}
