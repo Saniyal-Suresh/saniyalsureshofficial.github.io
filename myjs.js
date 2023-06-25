@@ -8,6 +8,9 @@ var display = 0;
 function first() {
   if (display == 1) {
     htmlCard.style.display = "block";
+    cssCard.style.display = "none";
+    jsCard.style.display = "none";
+    bootCard.style.display = "none"
     display = 0;
   } else {
     htmlCard.style.display = "none";
@@ -17,6 +20,9 @@ function first() {
 function second() {
   if (display == 1) {
     cssCard.style.display = "block";
+    htmlCard.style.display = "none";
+    jsCard.style.display = "none";
+    bootCard.style.display = "none"
     display = 0;
   } else {
     cssCard.style.display = "none";
@@ -26,6 +32,9 @@ function second() {
 function third() {
   if (display == 1) {
     jsCard.style.display = "block";
+    cssCard.style.display = "none";
+    htmlCard.style.display = "none";
+    bootCard.style.display = "none"
     display = 0;
   } else {
     jsCard.style.display = "none";
@@ -35,6 +44,9 @@ function third() {
 function fourth() {
   if (display == 1) {
     bootCard.style.display = "block";
+    cssCard.style.display = "none";
+    jsCard.style.display = "none";
+    htmlCard.style.display = "none"
     display = 0;
   } else {
     bootCard.style.display = "none";
