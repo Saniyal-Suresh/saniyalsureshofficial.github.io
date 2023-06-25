@@ -3,6 +3,16 @@ var cssCard = document.getElementById("second-card");
 var jsCard = document.getElementById("third-card");
 var bootCard = document.getElementById("fourth-card");
 
+const userName = document.querySelector('.myText')
+
+let alert = false;
+const interval = setInterval(()=>{
+  userName.innerHTML = alert ? "Saniyal Suresh" : "Developer";
+  alert = !alert;
+},1000)
+
+
+
 var display = 0;
 
 function first() {
