@@ -5,7 +5,12 @@
 }
 body{
     background: linear-gradient(rgb(0, 140, 255),rgb(0, 217, 255));
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
+}
+h5{
+    color: #fff;
 }
 .container{
     display: flex;
