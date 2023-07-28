@@ -5,6 +5,7 @@
 }
 body{
     background: linear-gradient(rgb(0, 140, 255),rgb(0, 217, 255));
+    height: 100vh;
 }
 .container{
     display: flex;
@@ -49,5 +50,6 @@ body{
         margin: auto;
         margin-top: 10px;
         width: 240px;
+        height: 28px;
     }
 }
