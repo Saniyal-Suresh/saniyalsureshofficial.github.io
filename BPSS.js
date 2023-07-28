@@ -21,8 +21,9 @@ btn.addEventListener("click", () => {
   let charges = Number(dbdCalc+emiCard+addonCard+instaCard);
   let sumCharge = charges+proCharge
   let emiMonths = schemeMonths.value - advEmi.value;
+  let advTot = emiCalc*advEmi.value
   dbdDisplay.innerHTML = "DBD : " + dbdCalc;
   emiDisplay.innerHTML = "EMI : " + emiCalc + " Rs. "+emiMonths+" months";
   chargesDisplay.innerHTML = "Charges : "+sumCharge;
-  ipDisplay.innerHTML = "IP / Down Payment = "+ (sumCharge+emiCalc)
+  ipDisplay.innerHTML = "IP / Down Payment = "+ (sumCharge+advTot);
 });
