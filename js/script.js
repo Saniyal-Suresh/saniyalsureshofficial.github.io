@@ -90,26 +90,42 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
 });
 
 // Download CV as PDF
-document.getElementById('downloadCV')?.addEventListener('click', () => {
+// Download CV as PDF - Fixed Version
+document.getElementById('downloadCV')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Check if jsPDF loaded
+    if (typeof window.jspdf === 'undefined') {
+        showToast('PDF library not loaded. Please refresh the page.');
+        console.error('jsPDF not found. Check CDN link in HTML');
+        return;
+    }
+    
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-
+    
+    // Header
     doc.setFillColor(99, 102, 241);
     doc.rect(0, 0, 210, 40, 'F');
-    doc.setTextColor(255, 255);
+    doc.setTextColor(255, 255, 255);
     doc.setFontSize(26);
     doc.setFont('helvetica', 'bold');
     doc.text('Saniyal Suresh', 20, 20);
     doc.setFontSize(14);
     doc.setFont('helvetica', 'normal');
     doc.text('Full Stack Web Developer', 20, 30);
-
-    doc.setTextColor(0, 0, 0);
+    
+    // Contact Info
+    doc.setTextColor(0,0,0);
     doc.setFontSize(11);
-    doc.text('Email: ' + YOUR_EMAIL, 20, 50);
-    doc.text('Phone: +91 XXXXX XXXXX', 20, 57);
-    doc.text('Location: Kerala, India', 20, 64);
-
+    doc.text('Email: saniyalsuresh2@gmail.com', 20, 50);
+    doc.text('Phone: +91 XXXXX XX735', 20, 57);
+    doc.text('Location: Kozhikode, Kerala, India', 20, 64);
+    doc.text('LinkedIn: linkedin.com/in/saniyalsuresh', 20, 71);
+    doc.text('https://github.com/Saniyal-Suresh', 20, 78);
+    doc.text('Connect me on mail in digital cv mobile number is not given completely', 20, 85);
+    
+    // About
     doc.setFontSize(16);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
@@ -120,7 +136,8 @@ document.getElementById('downloadCV')?.addEventListener('click', () => {
     const aboutText = 'Passionate Full Stack Web Developer with 2+ years of experience creating responsive and user-friendly websites. Specialized in HTML5, CSS3, JavaScript, and Bootstrap. Currently learning React.js. Delivered 30+ successful projects with 100% client satisfaction.';
     const splitAbout = doc.splitTextToSize(aboutText, 170);
     doc.text(splitAbout, 20, 103);
-
+    
+    // Skills
     doc.setFontSize(16);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
@@ -133,62 +150,62 @@ document.getElementById('downloadCV')?.addEventListener('click', () => {
     doc.text('• JavaScript - 50%', 20, 152);
     doc.text('• Bootstrap - 50%', 20, 159);
     doc.text('• React.js - Learning', 20, 166);
-
+    
+    // Experience
+    doc.setFontSize(16);
+    doc.setTextColor(99, 102, 241);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Experience', 20, 181);
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Freelance Web Developer', 20, 191);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.text('2023 - Present', 20, 198);
+    const exp1 = 'Working with clients worldwide to create custom websites and web applications. Delivered 30+ successful projects with 100% client satisfaction.';
+    const splitExp1 = doc.splitTextToSize(exp1, 170);
+    doc.text(splitExp1, 20, 205);
+    
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Frontend Development', 20, 220);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.text('2022 - 2023', 20, 227);
+    const exp2 = 'Mastered HTML, CSS, JavaScript, and Bootstrap. Built multiple responsive websites and learned modern development practices including Git.';
+    const splitExp2 = doc.splitTextToSize(exp2, 170);
+    doc.text(splitExp2, 20, 234);
+    
+    // Services
+    doc.setFontSize(16);
+    doc.setTextColor(99, 102, 241);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Services', 20, 249);
+    doc.setFontSize(11);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'normal');
+    doc.text('• Web Development - Custom responsive websites', 20, 259);
+    doc.text('• UI/UX Design - User-centered design principles', 20, 266);
+    doc.text('• Performance Optimization - Fast loading websites', 20, 273);
+    
+    // Save PDF
     doc.save('Saniyal_Suresh_CV.pdf');
     showToast('CV downloaded successfully!');
 });
 
-// Contact Form Submit with EmailJS
-document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-        showToast('Email service not configured. Please contact me directly at ' + YOUR_EMAIL);
-        console.error('EmailJS not configured. Replace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID in script.js');
-        return;
+// Toast Function - Add this if not already present
+function showToast(message) {
+    const toastElement = document.getElementById('liveToast');
+    const toastMessage = document.getElementById('toastMessage');
+    if (toastElement && toastMessage) {
+        toastMessage.textContent = message;
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+    } else {
+        alert(message); // Fallback
     }
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    if (!name ||!email ||!phone ||!message) {
-        showToast('Please fill all fields');
-        return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showToast('Please enter a valid email address');
-        return;
-    }
-
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-    submitBtn.disabled = true;
-
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name: name,
-        from_email: email,
-        phone: phone,
-        message: message,
-        to_email: YOUR_EMAIL,
-        reply_to: email
-    }).then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        showToast('Message sent successfully! I will get back to you soon.');
-        document.getElementById('contactForm').reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, function(error) {
-        console.log('FAILED...', error);
-        showToast('Failed to send: ' + error.text + '. Email me at ' + YOUR_EMAIL);
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    });
-});
+}
 
 // Toast Function
 function showToast(message) {
