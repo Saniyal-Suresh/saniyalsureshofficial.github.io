@@ -476,3 +476,19 @@ footer a:hover {
         font-size: 2rem;
     }
 }
+
+.hero-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+    border: 5px solid rgba(99, 102, 241, 0.1);
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    transition: all 0.4s ease;
+}
+.hero-img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(99, 102, 241, 0.4);
+}

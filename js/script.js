@@ -1,14 +1,23 @@
 // ============================================
-// EMAILJS CONFIG - REPLACE WITH YOUR VALUES
+// CONFIG - REPLACE WITH YOUR VALUES
 // ============================================
-const EMAILJS_PUBLIC_KEY = "gpxzHmqixw6cilo0H";
-const EMAILJS_SERVICE_ID = "service_jyko3hs";
-const EMAILJS_TEMPLATE_ID = "template_jn3aqym";
-const YOUR_EMAIL = "saniesstudios@gmail.com"; // നിങ്ങളുടെ email
+const EMAILJS_PUBLIC_KEY = 'service_jyko3hs'; 
+const EMAILJS_SERVICE_ID = 'service_jyko3hs'; // EmailJS-ൽ check ചെയ്യുക
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ഇത് മാറ്റണം
+const YOUR_EMAIL = 'saniyalsuresh@gmail.com';
+
+// ============================================
+// PROFILE PHOTO BASE64 - ഇവിടെ paste ചെയ്യുക
+// ============================================
+// Step 1: https://www.base64-image.de/ പോയി
+// Step 2: Images/saniyal_profile.png upload ചെയ്യുക  
+// Step 3: കിട്ടുന്ന code full copy ചെയ്ത് താഴെ paste ചെയ്യുക
+const PROFILE_PHOTO_BASE64 = ""; 
+// മുകളിലെ site-ൽ നിന്ന് കിട്ടിയ full code ഇവിടെ paste ചെയ്യുക
 
 // EmailJS Init
 (function() {
-    if (EMAILJS_PUBLIC_KEY!== "YOUR_PUBLIC_KEY") {
+    if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
         emailjs.init(EMAILJS_PUBLIC_KEY);
     }
 })();
@@ -19,9 +28,7 @@ window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
             preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500);
+            setTimeout(() => preloader.style.display = 'none', 500);
         }
     }, 500);
 });
@@ -35,7 +42,7 @@ AOS.init({
 
 // Typed.js
 new Typed('#typed', {
-    strings: ['Saniyal Suresh', 'Web Developer', 'Freelancer', 'Designer', 'Problem Solver', 'Tech Enthusiast'],
+    strings: ['Saniyal Suresh', 'Web Developer', 'Freelancer', 'Designer', 'Problem Solver'],
     typeSpeed: 80,
     backSpeed: 50,
     backDelay: 2000,
@@ -45,27 +52,24 @@ new Typed('#typed', {
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
-
 const currentTheme = localStorage.getItem('theme') || 'light';
 html.setAttribute('data-theme', currentTheme);
 updateThemeUI(currentTheme);
 
-themeToggle.addEventListener('click', () => {
-    const theme = html.getAttribute('data-theme') === 'dark'? 'light' : 'dark';
+themeToggle?.addEventListener('click', () => {
+    const theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     updateThemeUI(theme);
 });
 
 function updateThemeUI(theme) {
-    if (theme === 'dark') {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    if (themeToggle) {
+        themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
 }
 
-// Navbar scroll effect + Back to top
+// Navbar scroll + Back to top
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -73,139 +77,230 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
-
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
-        if (window.scrollY > 300) {
-            backToTop.style.display = 'block';
-        } else {
-            backToTop.style.display = 'none';
-        }
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     }
 });
 
-// Back to top click
 document.getElementById('backToTop')?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Download CV as PDF
-// Download CV as PDF - Fixed Version
+// Download CV - WITH PHOTO + FULL DETAILS
 document.getElementById('downloadCV')?.addEventListener('click', function(e) {
     e.preventDefault();
     
-    // Check if jsPDF loaded
     if (typeof window.jspdf === 'undefined') {
-        showToast('PDF library not loaded. Please refresh the page.');
-        console.error('jsPDF not found. Check CDN link in HTML');
+        showToast('PDF library not loaded. Please refresh.');
         return;
     }
     
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
+    let yPos = 15;
+    
+    // Add Profile Photo - Top Right Corner
+    if (PROFILE_PHOTO_BASE64 && PROFILE_PHOTO_BASE64.startsWith('data:image')) {
+        try {
+            doc.addImage(PROFILE_PHOTO_BASE64, 'PNG', 155, 10, 40, 40);
+        } catch (err) {
+            console.log('Photo error:', err);
+        }
+    }
     
     // Header
     doc.setFillColor(99, 102, 241);
-    doc.rect(0, 0, 210, 40, 'F');
+    doc.rect(0, 0, 210, 55, 'F');
     doc.setTextColor(255, 255, 255);
-    doc.setFontSize(26);
+    doc.setFontSize(30);
     doc.setFont('helvetica', 'bold');
-    doc.text('Saniyal Suresh', 20, 20);
+    doc.text('SANIYAL SURESH', 20, yPos);
+    yPos += 10;
     doc.setFontSize(14);
     doc.setFont('helvetica', 'normal');
-    doc.text('Full Stack Web Developer', 20, 30);
+    doc.text('Full Stack Web Developer', 20, yPos);
+    yPos += 8;
+    doc.setFontSize(10);
+    doc.text('Kerala, India', 20, yPos);
+    yPos += 5;
+    doc.text('Email: saniyalsuresh@gmail.com | Phone: +91 XXXXX XXX35', 20, yPos);
+    yPos += 5;
+    doc.text('LinkedIn: linkedin.com/in/saniyalsuresh | GitHub: https://github.com/Saniyal-Suresh', 20, yPos);
+    yPos = 65;
     
-    // Contact Info
-    doc.setTextColor(0,0,0);
-    doc.setFontSize(11);
-    doc.text('Email: saniyalsuresh2@gmail.com', 20, 50);
-    doc.text('Phone: +91 XXXXX XX735', 20, 57);
-    doc.text('Location: Kozhikode, Kerala, India', 20, 64);
-    doc.text('LinkedIn: linkedin.com/in/saniyalsuresh', 20, 71);
-    doc.text('https://github.com/Saniyal-Suresh', 20, 78);
-    doc.text('Connect me on mail in digital cv mobile number is not given completely', 20, 85);
-    
-    // About
-    doc.setFontSize(16);
+    // Professional Summary
+    doc.setFontSize(14);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
-    doc.text('Professional Summary', 20, 93);
-    doc.setFontSize(11);
+    doc.text('PROFESSIONAL SUMMARY', 20, yPos);
+    yPos += 7;
+    doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
     doc.setFont('helvetica', 'normal');
-    const aboutText = 'Passionate Full Stack Web Developer with 2+ years of experience creating responsive and user-friendly websites. Specialized in HTML5, CSS3, JavaScript, and Bootstrap. Currently learning React.js. Delivered 30+ successful projects with 100% client satisfaction.';
-    const splitAbout = doc.splitTextToSize(aboutText, 170);
-    doc.text(splitAbout, 20, 103);
+    const summary = 'Passionate Full Stack Web Developer with 2+ years of hands-on experience building responsive, user-centric websites and web applications. Successfully delivered 50+ projects with 100% client satisfaction. Expert in modern front-end technologies with strong problem-solving skills and attention to detail. Currently mastering React.js to build scalable applications.';
+    const splitSummary = doc.splitTextToSize(summary, 170);
+    doc.text(splitSummary, 20, yPos);
+    yPos += splitSummary.length * 5 + 8;
     
-    // Skills
-    doc.setFontSize(16);
+    // Technical Skills
+    doc.setFontSize(14);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
-    doc.text('Technical Skills', 20, 128);
-    doc.setFontSize(11);
+    doc.text('TECHNICAL SKILLS', 20, yPos);
+    yPos += 7;
+    doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
     doc.setFont('helvetica', 'normal');
-    doc.text('• HTML5 - 80%', 20, 138);
-    doc.text('• CSS3 - 60%', 20, 145);
-    doc.text('• JavaScript - 50%', 20, 152);
-    doc.text('• Bootstrap - 50%', 20, 159);
-    doc.text('• React.js - Learning', 20, 166);
+    doc.text('Frontend: HTML5 (80%), CSS3 (60%), JavaScript ES6+ (50%), Bootstrap 5 (50%)', 20, yPos);
+    yPos += 5;
+    doc.text('Frameworks & Libraries: React.js (Learning), jQuery, AOS.js, Typed.js', 20, yPos);
+    yPos += 5;
+    doc.text('Backend: Node.js, Express.js, MongoDB, REST APIs', 20, yPos);
+    yPos += 5;
+    doc.text('Tools & Others: Git, GitHub, VS Code, npm, Webpack, Responsive Design, SEO', 20, yPos);
+    yPos += 10;
     
-    // Experience
-    doc.setFontSize(16);
+    // Professional Experience
+    doc.setFontSize(14);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
-    doc.text('Experience', 20, 181);
+    doc.text('PROFESSIONAL EXPERIENCE', 20, yPos);
+    yPos += 7;
+    
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
     doc.setFont('helvetica', 'bold');
-    doc.text('Freelance Web Developer', 20, 191);
-    doc.setFontSize(11);
+    doc.text('Freelance Web Developer', 20, yPos);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'italic');
+    doc.text('2023 - Present | Remote', 140, yPos);
+    yPos += 5;
     doc.setFont('helvetica', 'normal');
-    doc.text('2023 - Present', 20, 198);
-    const exp1 = 'Working with clients worldwide to create custom websites and web applications. Delivered 30+ successful projects with 100% client satisfaction.';
-    const splitExp1 = doc.splitTextToSize(exp1, 170);
-    doc.text(splitExp1, 20, 205);
+    const exp1 = '• Developed 30+ custom websites for international clients across various industries\n• Improved client conversion rates by 40% through UX/UI optimization\n• Maintained 100% client satisfaction with timely project delivery\n• Implemented responsive designs compatible across all devices and browsers';
+    doc.text(exp1, 20, yPos);
+    yPos += 22;
     
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text('Frontend Development', 20, 220);
-    doc.setFontSize(11);
+    doc.text('Frontend Developer', 20, yPos);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'italic');
+    doc.text('2022 - 2023', 140, yPos);
+    yPos += 5;
     doc.setFont('helvetica', 'normal');
-    doc.text('2022 - 2023', 20, 227);
-    const exp2 = 'Mastered HTML, CSS, JavaScript, and Bootstrap. Built multiple responsive websites and learned modern development practices including Git.';
-    const splitExp2 = doc.splitTextToSize(exp2, 170);
-    doc.text(splitExp2, 20, 234);
+    const exp2 = '• Built 20+ responsive websites using HTML5, CSS3, JavaScript, Bootstrap\n• Achieved 90+ Google PageSpeed scores through performance optimization\n• Created reusable component libraries reducing development time by 30%\n• Collaborated with designers to implement pixel-perfect layouts';
+    doc.text(exp2, 20, yPos);
+    yPos += 22;
     
-    // Services
-    doc.setFontSize(16);
+    // Add new page if needed
+    if (yPos > 240) {
+        doc.addPage();
+        yPos = 20;
+    }
+    
+    // Key Projects
+    doc.setFontSize(14);
     doc.setTextColor(99, 102, 241);
     doc.setFont('helvetica', 'bold');
-    doc.text('Services', 20, 249);
+    doc.text('KEY PROJECTS', 20, yPos);
+    yPos += 7;
+    
     doc.setFontSize(11);
     doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'bold');
+    doc.text('1. ExamPro - Online Examination System', 20, yPos);
+    yPos += 5;
+    doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
-    doc.text('• Web Development - Custom responsive websites', 20, 259);
-    doc.text('• UI/UX Design - User-centered design principles', 20, 266);
-    doc.text('• Performance Optimization - Fast loading websites', 20, 273);
+    doc.text('Full-stack platform with real-time analytics, AI-powered results, and secure testing.', 20, yPos);
+    yPos += 5;
+    doc.text('Technologies: Express.js, Node.js, MongoDB, Deployed on Render', 20, yPos);
+    yPos += 5;
+    doc.text('URL: exam-pro-l3ua.onrender.com', 20, yPos);
+    yPos += 10;
     
-    // Save PDF
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('2. Portfolio Website with CMS Features', 20, yPos);
+    yPos += 5;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Modern responsive portfolio with dark/light mode, animations, and contact form.', 20, yPos);
+    yPos += 5;
+    doc.text('Technologies: HTML5, CSS3, JavaScript, Bootstrap 5, AOS, EmailJS', 20, yPos);
+    yPos += 10;
+    
+    // Education
+    doc.setFontSize(14);
+    doc.setTextColor(99, 102, 241);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EDUCATION & CERTIFICATIONS', 20, yPos);
+    yPos += 7;
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'normal');
+    doc.text('• Full Stack Web Development - Self-taught & Online Courses (2022-2024)', 20, yPos);
+    yPos += 5;
+    doc.text('• Responsive Web Design Certification - FreeCodeCamp', 20, yPos);
+    yPos += 5;
+    doc.text('• JavaScript Algorithms & Data Structures - In Progress', 20, yPos);
+    yPos += 10;
+    
+    // Footer
+    doc.setFontSize(8);
+    doc.setTextColor(128, 128, 128);
+    doc.text('Generated from saniyalsuresh.dev | Last Updated: January 2026', 20, 285);
+    
     doc.save('Saniyal_Suresh_CV.pdf');
-    showToast('CV downloaded successfully!');
+    showToast('CV with photo downloaded successfully!');
 });
 
-// Toast Function - Add this if not already present
-function showToast(message) {
-    const toastElement = document.getElementById('liveToast');
-    const toastMessage = document.getElementById('toastMessage');
-    if (toastElement && toastMessage) {
-        toastMessage.textContent = message;
-        const toast = new bootstrap.Toast(toastElement);
-        toast.show();
-    } else {
-        alert(message); // Fallback
+// Contact Form
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!EMAILJS_TEMPLATE_ID || EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID') {
+        showToast('Email service not configured. Contact: ' + YOUR_EMAIL);
+        return;
     }
-}
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const status = document.getElementById('formStatus');
+
+    if (!name || !email || !phone || !message) {
+        status.innerHTML = '<div class="alert alert-warning mt-3">Please fill all fields</div>';
+        return;
+    }
+
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+    status.innerHTML = '';
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        phone: phone,
+        message: message,
+        to_email: YOUR_EMAIL,
+        reply_to: email
+    }).then(() => {
+        status.innerHTML = '<div class="alert alert-success mt-3">✅ Message sent successfully!</div>';
+        this.reset();
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    }, (error) => {
+        status.innerHTML = '<div class="alert alert-danger mt-3">❌ Failed. Email: ' + YOUR_EMAIL + '</div>';
+        console.log('FAILED...', error);
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    });
+});
 
 // Toast Function
 function showToast(message) {
@@ -215,47 +310,26 @@ function showToast(message) {
         toastMessage.textContent = message;
         const toast = new bootstrap.Toast(toastElement);
         toast.show();
+    } else {
+        alert(message);
     }
 }
 
-// Smooth scroll for nav links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navHeight;
             window.scrollTo({
-                top: targetPosition,
+                top: target.offsetTop - navHeight,
                 behavior: 'smooth'
             });
-
             const navbarCollapse = document.querySelector('.navbar-collapse');
             if (navbarCollapse.classList.contains('show')) {
                 bootstrap.Collapse.getInstance(navbarCollapse).hide();
             }
-        }
-    });
-});
-
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id], #home');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
         }
     });
 });
