@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "google-fonts": "^1.0.0",
     "jquery": "^3.6.4"

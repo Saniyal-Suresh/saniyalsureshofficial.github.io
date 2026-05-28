@@ -2,273 +2,442 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio-Saniyal-Suresh</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saniyal Suresh | Full Stack Web Developer</title>
+    <meta name="description" content="Saniyal Suresh - Professional Web Developer specializing in HTML, CSS, JavaScript, Bootstrap. Available for freelance projects.">
 
-    <!-- Bootstrap node_modules -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
-
-    <!-- user stylesheets -->
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./responsive.css" />
-
-    <!-- bootstrap via cdn  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-    <!-- fontAwesome via CDN  -->
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/ce8fedaf62.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="bg-dark ">
-    
-    <nav class="navbar  navbar-expand-lg  position-fixed  w-100 new-transp" style="z-index: 9;">
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a  class="navbar-brand colorSani" href="#">Saniyal Suresh</a>
-            <button class="navbar-toggler my-Outline" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Saniyal Suresh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase myul">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#project">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <li class="nav-item">
-                        <a  id="myHome" class="nav-link active" aria-current="page" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="myAbout" class="nav-link" href="#about">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a id="myProjects" class="nav-link" href="#project">Project</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a id="myContact" class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="myContact" class="nav-link" href="BPSS.html">Softwares</a>
+                        <button class="theme-toggle ms-2" id="themeToggle" type="button">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
 
-    <!-- home seciton -->
-    <div id="home" class="container bg-dark text-light">
-        <div class="row vh-100 d-flex align-items-center">
-            <div class="col-lg-4 col-md-12 col-12 m-auto">
-                <img class="img-fluid" src="Images/web-developer.png" alt="">
-            </div>
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 text-center mb-5 mb-lg-0" data-aos="fade-right">
+                    <img class="hero-img" src="Images/web-developer.png" alt="Saniyal Suresh">
+                </div>
 
-            <div class="intro col-lg-8 col-md-12 col-12 ps-lg-5 m-auto">
-                <h1 class="">Hi I'am <span class="bg-black text-light px-2 myText">Saniyal Suresh</span></h1>
-                <p>I'm <strong>Saniyal Suresh.</strong> I have a lot of intrest in Designing & Coding, and also I'm really enjoying it. I'm focusing on leatest technologies and also like to work as a freelancer.
-                </p>
+                <div class="col-lg-7 col-md-12" data-aos="fade-left">
+                    <div class="mb-3">
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2">
+                            <i class="fas fa-code me-2"></i>Available for Freelance
+                        </span>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">Hi I'm <span class="gradient-text" id="typed"></span></h1>
+                    <p class="lead mb-3">I'm <strong>Saniyal Suresh</strong>, a passionate Full Stack Web Developer from Kerala, India. I specialize in creating beautiful, responsive, and user-friendly websites that deliver exceptional user experiences.</p>
+                    <p class="mb-4 text-muted">With 2+ years of experience, I've helped 30+ clients transform their ideas into stunning digital products. I love turning complex problems into simple, beautiful solutions using modern technologies like HTML5, CSS3, JavaScript, Bootstrap, and exploring React.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Done</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 flex-wrap mt-4">
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope me-2"></i>Hire Me</a>
+                        <button id="downloadCV" class="btn btn-outline-primary"><i class="fas fa-download me-2"></i>Download CV</button>
+                        <a href="#project" class="btn btn-outline-primary"><i class="fas fa-briefcase me-2"></i>View Work</a>
+                    </div>
+                    <div class="mt-4 d-flex gap-3">
+                        <a href="https://github.com" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/saniyalsuresh" class="social-icon text-danger"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- about section  -->
-    <section id="about" class="container  text-light">
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="text-muted">Get to know more about my journey, skills, and passion for web development</p>
+                </div>
+            </div>
+
+            <div class="row g-5 align-items-center mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h3 class="fw-bold mb-3">Who Am I?</h3>
+                    <p class="mb-3">I'm Saniyal Suresh, a dedicated web developer with a passion for creating digital experiences that make a difference. My journey in web development started 2 years ago, and since then I've been constantly learning and improving my skills every single day.</p>
+                    <p class="mb-3">I specialize in front-end development with expertise in HTML5, CSS3, JavaScript, and Bootstrap. I believe in writing clean, maintainable code and following best practices. Currently, I'm expanding my skillset by learning React.js to build more dynamic and scalable applications.</p>
+                    <p class="mb-4">When I'm not coding, I enjoy exploring new design trends, contributing to open-source projects, reading tech blogs, and helping fellow developers in the community.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>Responsive Design</span></div>
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>Clean Code</span></div>
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>Problem Solving</span></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>SEO Optimized</span></div>
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>Fast Performance</span></div>
+                            <div class="d-flex align-items-center mb-2"><i class="fas fa-check-circle text-primary me-2"></i><span>Team Player</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="fw-bold mb-4">My Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">Freelance Web Developer</h5>
+                            <p class="text-muted mb-1">2023 - Present</p>
+                            <p>Working with clients worldwide to create custom websites and web applications. Delivered 30+ successful projects with 100% client satisfaction.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">Frontend Development</h5>
+                            <p class="text-muted mb-1">2022 - 2023</p>
+                            <p>Mastered HTML, CSS, JavaScript, and Bootstrap. Built multiple responsive websites and learned modern development practices including Git.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">Started Learning</h5>
+                            <p class="text-muted mb-1">2022</p>
+                            <p>Began my journey into web development. Fell in love with coding and design. Started building personal projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-12 text-center mb-3" data-aos="fade-up">
+                    <h3 class="fw-bold">My Technical Skills</h3>
+                    <p class="text-muted">Technologies I work with daily</p>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card text-center p-4 h-100">
+                        <img src="./Images/html.png" class="card-img-top mx-auto" alt="HTML">
+                        <div class="card-body">
+                            <h5 class="card-title">HTML5</h5>
+                            <p class="card-text text-muted">Semantic markup, accessibility, and modern HTML5 features</p>
+                            <div class="progress"><div class="progress-bar" style="width: 80%">80%</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card text-center p-4 h-100">
+                        <img src="./Images/css.png" class="card-img-top mx-auto" alt="CSS">
+                        <div class="card-body">
+                            <h5 class="card-title">CSS3</h5>
+                            <p class="card-text text-muted">Advanced styling, animations, Flexbox, Grid, and SASS</p>
+                            <div class="progress"><div class="progress-bar" style="width: 60%">60%</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card text-center p-4 h-100">
+                        <img src="./Images/Javascript.png" class="card-img-top mx-auto" alt="JavaScript">
+                        <div class="card-body">
+                            <h5 class="card-title">JavaScript</h5>
+                            <p class="card-text text-muted">ES6+, DOM manipulation, async programming, and APIs</p>
+                            <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card text-center p-4 h-100">
+                        <img src="./Images/bootstrap.png" class="card-img-top mx-auto" alt="Bootstrap">
+                        <div class="card-body">
+                            <h5 class="card-title">Bootstrap</h5>
+                            <p class="card-text text-muted">Responsive frameworks, components, and utilities</p>
+                            <div class="progress"><div class="progress-bar" style="width: 50%">50%</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Services I Offer</h2>
+                    <p class="text-muted">Professional solutions tailored to your business needs</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 p-4">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4 class="fw-bold mb-3">Web Development</h4>
+                        <p class="text-muted">Custom website development using modern technologies. From landing pages to complex web applications with full functionality.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i>Responsive Design</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Cross-browser Compatible</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>SEO Friendly</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Fast Loading Speed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 p-4">
+                        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4 class="fw-bold mb-3">UI/UX Design</h4>
+                        <p class="text-muted">Beautiful and intuitive user interfaces that provide excellent user experience across all devices and screen sizes.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i>User-Centered Design</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Modern Aesthetics</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Interactive Elements</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Wireframing & Prototyping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 p-4">
+                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                        <h4 class="fw-bold mb-3">Performance Optimization</h4>
+                        <p class="text-muted">Speed up your website with best practices, optimization techniques, and comprehensive performance audits.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i>Fast Loading</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Code Optimization</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Best Practices</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Core Web Vitals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">My Projects</h2>
+                    <p class="text-muted">Check out some of my recent work and case studies</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card shadow-lg">
+                        <img src="./Images/exam_pro.png" alt="Project 1">
+                        <div class="project-overlay">
+                            <h4 class="text-white">ExamPro</h4>
+                            <p class="text-white-50 mb-3">Professional Online Examination System Experience seamless, secure, and intelligent testing. Take exams anywhere, anytime with real-time analytics and instant results powered by AI.</p>
+                            <div class="d-flex gap-2 mb-3 flex-wrap">
+                                <span class="badge bg-primary">Express.js</span>
+                                <span class="badge bg-success">Node.js</span>
+                                <span class="badge bg-info">MongoDB</span>
+                                <span class="badge bg-warning">OnRender</span>
+                            </div>
+                            <a href="https://exam-pro-l3ua.onrender.com" class="btn btn-light btn-sm">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card shadow-lg">
+                        <img src="./Images/DEMO2.png" alt="Project 2">
+                        <div class="project-overlay">
+                            <h4 class="text-white">Portfolio Website</h4>
+                            <p class="text-white-50 mb-3">Modern responsive portfolio with animations, dark/light mode, contact form, and downloadable CV. Built with HTML5, CSS3, JavaScript, Bootstrap 5. Features AOS and Typed.js.</p>
+                            <div class="d-flex gap-2 mb-3 flex-wrap">
+                                <span class="badge bg-warning">HTML5</span>
+                                <span class="badge bg-info">CSS3</span>
+                                <span class="badge bg-danger">JavaScript</span>
+                                <span class="badge bg-primary">Bootstrap</span>
+                            </div>
+                            <a href="#" class="btn btn-light btn-sm">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card shadow-lg">
+                        <img src="./Images/DEMO3.png" alt="Project 3">
+                        <div class="project-overlay">
+                            <h4 class="text-white">Admin Dashboard</h4>
+                            <p class="text-white-50 mb-3">Comprehensive admin dashboard with data visualization, user management, real-time analytics. Interactive charts, sortable tables, filters, search, export to PDF/Excel. Role-based access.</p>
+                            <div class="d-flex gap-2 mb-3 flex-wrap">
+                                <span class="badge bg-primary">Bootstrap</span>
+                                <span class="badge bg-success">Chart.js</span>
+                                <span class="badge bg-secondary">REST API</span>
+                                <span class="badge bg-info">jQuery</span>
+                            </div>
+                            <a href="#" class="btn btn-light btn-sm">View Project <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact"> <!-- contactForm എന്നത് contact ആക്കുക -->
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-12  mt-5">
-                <h3 class="text-uppercase">skills i have</h3>
-                <p class="">HTML, CSS, Javascript, Bootstrap etc are my skills. And also I'm interested to study and work in <span class="text-info">React</span> framework.</p>
+            <div class="col-12 text-center mb-4" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="text-muted">Have a project in mind? Let's work together and bring your ideas to life!</p>
             </div>
         </div>
-
-
-
-
-        <div class="row col-lg-12 col-md-12 col-sm-6 col-6 d-flex justify-content-around align-items-center m-auto">
-
-
-
-
-            <div id="htmlImg" class="card bg-dark text-light m-2 rounded-5 " style="width: 18rem;" onclick="first()">
-                <img src="./Images/html.png" class="card-img-top" alt="...">
-                <div id="first-card" class="card-body hide" >
-
-                    <p class="card-text text-center ">Have 80% knowledge in HTML.</p>
-                    <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar text-bg-warning" style="width: 80%">80%</div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="zoom-in">
+                <form id="contactForm" class="p-4 rounded-4 shadow-lg">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                     </div>
-                </div>
-            </div>
-
-            <div id="cssImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="second()">
-                <img src="./Images/css.png" class="card-img-top" alt="...">
-                <div id="second-card" class="card-body hide">
-                    <p class="card-text text-center ">Have 60% knowledge in CSS.</p>
-                    <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="60"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar text-bg-warning" style="width: 60%">60%</div>
+                    <div class="mb-3">
+                        <label class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
                     </div>
-                </div>
-            </div>
-
-            <div id="jsImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="third()">
-                <img src="./Images/Javascript.png" class="card-img-top" alt="...">
-                <div id="third-card" class="card-body hide">
-                    <p class="card-text text-center ">Have 50% knowledge in JavaScript.</p>
-                    <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar text-bg-warning" style="width: 50%">50%</div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your number" required>
                     </div>
-                </div>
-            </div>
-
-            <div id="bootImg" class="card bg-dark text-light m-2 rounded-5" style="width: 18rem;" onclick="fourth()">
-                <img src="./Images/bootstrap.png" class="card-img-top" alt="...">
-                <div id="fourth-card" class="card-body hide">
-                    <p class="card-text text-center ">Have 50% knowledge in Bootstrap.</p>
-                    <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="50"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar text-bg-warning" style="width: 50%">50%</div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
                     </div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </div>
-        </div>
-
-    </section>
-
-    <!-- project section  -->
-    <section id="project" class="container mt-5">
-
-        <div id="carouselExampleDark" class="carousel carousel-dark slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="./Images/DEMO1.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="https://www.instagram.com/saniesstudios/"
-                                class="text-decoration-none text-danger">Show Project</a></h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src="./Images/DEMO2.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="https://www.instagram.com/saniesstudios/" class="text-decoration-none">Show
-                                Project</a></h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./Images/DEMO3.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><a href="https://www.instagram.com/saniesstudios/" class="text-decoration-none">Show
-                                Project</a></h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-
-    </section>
-
-
-    <!-- contact section  -->
-
-    <section>
-
-        <div class="container ">
-
-            <div id="contact" class="row ">
-                <h4 class="mt-5 text-center  col-lg-10 col-md-10 m-auto mb-3 text-bg-primary rounded-4">Get On Touch</h4>
-                <form action="" method="post">
-                    <div class="col-lg-10 col-md-10 m-auto bg-light rounded-bottom mb-5 bg-info p-5">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Enter your name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Enter your number" maxlength="10" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                        </div>
-
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
                     </div>
                 </form>
-
             </div>
-
         </div>
-
-    </section>
+    </div>
+</section>
 
     <footer>
-        <div class="container ">
-            <div class="row bg-dark d-flex align-items-center">
-                <ul class="list-unstyled d-flex justify-content-around align-items-center mt-2">
-                <li><a href="https://www.instagram.com/saniyalsuresh/" class="text-decoration-none text-danger"><span class="me-3"><i class="fa-brands fa-instagram"></i></span >Instagram</a></li>
-                <li><a href="" class="text-decoration-none"><span class="me-3"><i class="fa-brands fa-linkedin"></i></span>Linkedin</a></li>
-                <li><a href="" class="text-decoration-none text-info"><span class="me-3"><i class="fa-brands fa-facebook"></i></span> facebook</a></li>
-                </ul>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0 text-muted">&copy; 2026 Saniyal Suresh. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled d-flex justify-content-center justify-content-md-end gap-4 mb-0">
+                        <li><a href="https://www.instagram.com/saniyalsuresh/"><i class="fa-brands fa-instagram me-2"></i>Instagram</a></li>
+                        <li><a href="https://linkedin.com"><i class="fa-brands fa-linkedin me-2"></i>Linkedin</a></li>
+                        <li><a href="https://github.com"><i class="fa-brands fa-github me-2"></i>GitHub</a></li>
+                        <li><a href="https://facebook.com"><i class="fa-brands fa-facebook me-2"></i>Facebook</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        
     </footer>
 
-    <!-- navbar secton at bottom design -->
-    
+    <button id="backToTop" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage"></div>
+        </div>
     </div>
-
-    <!-- bootstrap JavaScript -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    // നിന്റെ IDs ഇവിടെ paste ചെയ്യുക
+    const SERVICE_ID = 'service_jyko3hs';
+    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ഇവിടെ മാറ്റുക
+    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // ഇവിടെ മാറ്റുക
     
-    <script src="./myjs.js"></script>
+    emailjs.init(PUBLIC_KEY);
 
-    <!-- bootstrap js via cdn  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btn = this.querySelector('button[type="submit"]');
+        const status = document.getElementById('formStatus');
+        
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+        status.innerHTML = '';
 
-    <!-- jquery via cdn  -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
+            .then(() => {
+                status.innerHTML = '<div class="alert alert-success">✅ Message sent! I will reply soon.</div>';
+                this.reset();
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            }, (error) => {
+                status.innerHTML = '<div class="alert alert-danger">❌ Failed to send. Try again.</div>';
+                console.log('FAILED...', error);
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            });
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
